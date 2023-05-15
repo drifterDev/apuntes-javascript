@@ -27,3 +27,8 @@ for (let i = 0; i < 5; i++) {
     }
   }
 }
+
+// Funciones flecha
+const pais = (nombre) => console.log("Nací en " + nombre);
+
+pais("Colombia");
