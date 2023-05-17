@@ -12,9 +12,13 @@ console.log(todosLosDivs[1].textContent);
 let texto = todosLosDivs[3];
 texto.innerHTML = "Hola soy un div!";
 console.log(todosLosDivs[3].textContent);
+let element;
 
-todosLosDivs.forEach((element, indice) => {
-  let parrafo = document.createElement("p");
-  let texto = element.textContent;
-  parrafo.appendChild(texto);
-});
+for (element in todosLosDivs) {
+  if (todosLosDivs[element].textContent.length >= 1) {
+    let parrafo = document.createElement("p");
+    let texto = document.createTextNode(todosLosDivs[element].textContent);
+    parrafo.appendChild(texto);
+    document.querySelector("section").appendChild(parrafo);
+  }
+}
