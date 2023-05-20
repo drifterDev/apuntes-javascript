@@ -52,3 +52,8 @@ boton.addEventListener("mouseover", function () {
 boton.addEventListener("mouseout", function () {
   boton.style.background = "white";
 });
+
+//Tambien se puede utilizar el operador this
+// boton.addEventListener("mouseout", function () {
+//   this.style.background = "white";
+// });
