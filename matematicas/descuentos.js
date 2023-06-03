@@ -1,3 +1,26 @@
+//  MIT License
+//
+// Copyright (c) 2023 Mateo Álvarez Murillo
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// This software and associated files are subject to the terms and conditions of
+// the MIT License and are included in this distribution. A copy of the license
+// can be found in the file LICENSE in the root of this distribution.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+
 const inputPrice = document.querySelector("#price");
 const inputCoupon = document.querySelector("#coupon");
 const btn = document.querySelector("#calcular");
@@ -5,25 +28,17 @@ const pResult = document.querySelector("#result");
 
 btn.addEventListener("click", calcularPrecioConDescuento);
 
-// const arrayUObjecto = undefined; // ['cupones': descuento] {}?
-
-// const couponsObj = {
-//   'JuanDC_es_Batman': 30,
-//   '3456789': 25,
-//   '123': 15,
-// };
-
 const couponsList = [];
 couponsList.push({
-  name: "JuanDC_es_Batman",
+  name: "codigo_cupon_1",
   discount: 30,
 });
 couponsList.push({
-  name: "pero_es_un_secreto",
+  name: "codigo_cupon_2",
   discount: 25,
 });
 couponsList.push({
-  name: "no_le_digas_a_nadie",
+  name: "codigo_cupon_3",
   discount: 15,
 });
 
@@ -32,7 +47,7 @@ function calcularPrecioConDescuento() {
   const coupon = inputCoupon.value;
 
   if (!price || !coupon) {
-    pResult.innerText = "CHANCLA por favor llena el formulario";
+    pResult.innerText = "Por favor llena el formulario";
     return;
   }
 
@@ -58,34 +73,6 @@ function calcularPrecioConDescuento() {
     couponInArray,
     couponsList,
   });
-
-  // if (couponsObj[coupon]) {
-  //   discount = couponsObj[coupon];
-  // } else {
-  // pResult.innerText = 'El cupón no es válido';
-  // return;
-  // }
-
-  // switch (coupon) {
-  //   case 'JuanDC_es_Batman':
-  //     discount = 30;
-  //     break;
-  //   case 'no_le_digas_a_nadie':
-  //     discount = 25;
-  //     break;
-  //   default:
-  // pResult.innerText = 'El cupón no es válido';
-  // return;
-  // }
-
-  // if (coupon == 'JuanDC_es_Batman') {
-  //   discount = 30;
-  // } else if (coupon == 'no_le_digas_a_nadie') {
-  //   discount = 25;
-  // } else {
-  // pResult.innerText = 'El cupón no es válido';
-  // return;
-  // }
 
   const newPrice = (price * (100 - discount)) / 100;
 
