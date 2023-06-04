@@ -21,17 +21,16 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-export function createPetList() {
-  const petList = [];
-  return function addPet(myPet) {
-    if (myPet) {
-      petList.push(myPet);
-    }
-    return petList;
-  };
+//var pet; Lo que hace el codigo por detras
+console.log(pet);
+//Da undefined porque esta declarado despues
+var pet = "Moshi";
+console.log(pet);
+
+//Hace lo mismo que antes
+nameOfPet();
+function nameOfPet() {
+  console.log("Mi mascota es " + pet2);
 }
 
-const myPetList = createPetList();
-myPetList("michi");
-myPetList("firulais");
-myPetList();
+var pet2 = "michi";

@@ -21,17 +21,13 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-export function createPetList() {
-  const petList = [];
-  return function addPet(myPet) {
-    if (myPet) {
-      petList.push(myPet);
-    }
-    return petList;
-  };
+var a = "Hola";
+function hola() {
+  let b = "Hola mundo";
+  const c = "Hola mundo!";
+  debugger;
 }
 
-const myPetList = createPetList();
-myPetList("michi");
-myPetList("firulais");
-myPetList();
+hola();
+//Copiar y pegar en la consola en una pagina
+//Preferiblemente en about:blank
