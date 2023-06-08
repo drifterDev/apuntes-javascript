@@ -21,7 +21,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-//var pet; Lo que hace el codigo por detras
+//var pet=undefined; Lo que hace el codigo por detras
 console.log(pet);
 //Da undefined porque esta declarado despues
 var pet = "Moshi";
