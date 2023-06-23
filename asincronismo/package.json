@@ -1,0 +1,19 @@
+{
+  "name": "asincronismo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "callback": "node src/callback/challenge.js"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "author": "mateo alvarez <maalvarezmu@unal.edu.co>",
+  "license": "MIT",
+  "dependencies": {
+    "node": "^20.2.0",
+    "xmlhttprequest": "^1.8.0"
+  },
+  "type": "module"
+}
