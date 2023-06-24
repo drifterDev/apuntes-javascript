@@ -1,0 +1,63 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+#container {
+  width: 100vw;
+  height: 100vh;
+  padding: 5rem;
+}
+
+#cards {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 15px;
+}
+
+.card {
+  width: 100%;
+  height: 80vh;
+  border-radius: 5rem;
+}
+
+#cards > .card {
+  background-size: cover;
+  background-position: center;
+  background-position-x: 25%;
+  background-position-y: 25%;
+  background-repeat: no-repeat;
+}
+
+#cards > :nth-child(1) {
+  background-image: url("../../../imagenes/gato1.jpg");
+}
+#cards > :nth-child(2) {
+  background-image: url("../../../imagenes/gato2.jpg");
+}
+#cards > :nth-child(3) {
+  background-image: url("../../../imagenes/gato3.jpg");
+}
+#cards > :nth-child(4) {
+  background-image: url("../../../imagenes/gato4.jpg");
+}
+#cards > :nth-child(5) {
+  background-image: url("../../../imagenes/gato5.jpg");
+}
+.card span {
+  position: absolute;
+  top: 7rem;
+  margin-left: 1.5rem;
+  font-size: 1.7rem;
+  color: black;
+  font-weight: bold;
+}

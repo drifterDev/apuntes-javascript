@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Frontend Mentor | Age calculator app</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="content">
+        <form action="" id="form">
+          <div id="entrada">
+            <div class="entrada" id="dia">
+              <label for="dia">Day</label>
+              <input type="number" name="dia" id="input-dia" required placeholder="DD"/>
+              <span class="error" id="error-dia"></span>
+            </div>
+            <div class="entrada" id="mes">
+              <label for="mes">Month</label>
+              <input type="number" name="mes" id="input-mes" required placeholder="MM"/>
+              <span class="error" id="error-mes"></span>
+            </div>
+            <div class="entrada" id="ano">
+              <label for="ano">Year</label>
+              <input type="number" name="ano" id="input-ano" required placeholder="YYYY"/>
+              <span class="error" id="error-ano"></span>
+            </div>
+          </div>
+          <div id="separador">
+            <hr />
+            <button id="boton"></button>
+          </input>
+
+          </div>
+          <img src="assets/images/icon-arrow.svg" alt="" />
+
+        </form>
+        <div id="salida">
+          <div class="caja-salida">
+            <span id="output-ano">- -</span>
+            <p>years</p>
+          </div>
+          <div class="caja-salida">
+            <span id="output-mes">- -</span>
+            <p>months</p>
+          </div>
+          <div class="caja-salida">
+            <span id="output-dia">- -</span>
+            <p>days</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
