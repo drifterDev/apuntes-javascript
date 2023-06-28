@@ -13,7 +13,14 @@ const restricciones = {
 
 let medida;
 let elementSize;
+let level = 0;
+let lives = 3;
 const playerPosition = {
+  x: undefined,
+  y: undefined,
+};
+
+const giftPosition = {
   x: undefined,
   y: undefined,
 };
@@ -37,65 +44,88 @@ function setCanvasSize() {
 }
 
 function startGame() {
+  game.clearRect(0, 0, canvas.width, canvas.height);
   elementSize = medida / 10 - 1;
-  let filas = maps[0].trim().split("\n");
-  let filasColumnas = filas.map((row) => row.trim().split(""));
-
   game.font = elementSize + "px Verdana";
-
+  let mapa = maps[level];
+  if (!mapa) {
+    gameWin();
+    return;
+  }
+  let filas = mapa.trim().split("\n");
+  let playerDead = false;
+  let filasColumnas = filas.map((row) => row.trim().split(""));
   filasColumnas.forEach((row, i) => {
-    row.forEach((col, i2) => {
+    row.forEach((col, j) => {
       const emoticon = emojis[col];
-      const posX = elementSize * i2;
+      const posX = elementSize * j;
       const posY = elementSize * (i + 1);
       game.fillText(emoticon, posX, posY);
       if (col == "O" && !playerPosition.x && !playerPosition.y) {
         playerPosition.x = posX;
         playerPosition.y = posY;
-        restricciones.x = i2;
+        restricciones.x = j;
         restricciones.y = i;
         game.fillText(emojis["PLAYER"], playerPosition.x, playerPosition.y);
+      } else if (col == "I") {
+        giftPosition.x = posX;
+        giftPosition.y = posY;
+      } else if (emoticon == emojis["X"]) {
+        if (Math.round(posX) == Math.round(playerPosition.x)) {
+          if (Math.round(posY) == Math.round(playerPosition.y)) {
+            playerDead = true;
+          }
+        }
       }
     });
   });
+  if (playerDead) {
+    game.fillText(emojis["BOMB_COLLISION"], playerPosition.x, playerPosition.y);
+    setTimeout(gameOver, 250);
+  } else {
+    game.fillText(emojis["PLAYER"], playerPosition.x, playerPosition.y);
+  }
 }
 
 function movePlayer() {
-  game.clearRect(0, 0, canvas.width, canvas.height);
+  const posicionX = Math.round(playerPosition.x) == Math.round(giftPosition.x);
+  const posicionY = Math.round(playerPosition.y) == Math.round(giftPosition.y);
   startGame();
-  game.fillText(emojis["PLAYER"], playerPosition.x, playerPosition.y);
+  if (posicionX && posicionY) {
+    levelWin();
+  }
 }
 
 function moveUp() {
   if (restricciones.y - 1 >= 0) {
     playerPosition.y -= elementSize;
     restricciones.y -= 1;
+    movePlayer();
   }
-  movePlayer();
 }
 
 function moveDown() {
   if (restricciones.y + 1 <= 9) {
     playerPosition.y += elementSize;
     restricciones.y += 1;
+    movePlayer();
   }
-  movePlayer();
 }
 
 function moveLeft() {
   if (restricciones.x - 1 >= 0) {
     playerPosition.x -= elementSize;
     restricciones.x -= 1;
+    movePlayer();
   }
-  movePlayer();
 }
 
 function moveRight() {
   if (restricciones.x + 1 <= 9) {
     playerPosition.x += elementSize;
     restricciones.x += 1;
+    movePlayer();
   }
-  movePlayer();
 }
 
 function moveByKey(evento) {
@@ -104,5 +134,25 @@ function moveByKey(evento) {
   else if (key == "arrowright" || key == "d") moveRight();
   else if (key == "arrowdown" || key == "s") moveDown();
   else if (key == "arrowup" || key == "w") moveUp();
-  movePlayer();
+  else return;
+}
+
+function levelWin() {
+  level++;
+  startGame();
+}
+
+function gameWin() {
+  alert("ganaste");
+}
+
+function gameOver() {
+  lives -= 1;
+  if (lives <= 0) {
+    level = 0;
+    lives = 3;
+  }
+  playerPosition.x = undefined;
+  playerPosition.y = undefined;
+  startGame();
 }
