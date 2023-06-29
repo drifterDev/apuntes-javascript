@@ -34,6 +34,7 @@ const estudiante = {
 console.log(Object.keys(estudiante));
 console.log(Object.entries(estudiante));
 console.log(Object.getOwnPropertyNames(estudiante));
+console.log(Object.getOwnPropertyDescriptors(estudiante));
 
 //Crear nuevo atributo
 //Si writable es false: no se puede modificar el atributo
