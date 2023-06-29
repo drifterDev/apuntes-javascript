@@ -4,13 +4,13 @@ const btnLeft = document.getElementById("left");
 const btnRight = document.getElementById("right");
 const btnUp = document.getElementById("up");
 const btnDown = document.getElementById("down");
+const btnReset = document.getElementById("reset");
 const game = canvas.getContext("2d");
 const spanVidas = document.getElementById("lives");
 const spanTime = document.getElementById("time");
 const spanRecord = document.getElementById("record");
 const spanResult = document.getElementById("result");
 const spanWin = document.getElementById("win");
-
 const restricciones = {
   x: undefined,
   y: undefined,
@@ -39,27 +39,46 @@ btnDown.addEventListener("click", moveDown);
 btnUp.addEventListener("click", moveUp);
 btnLeft.addEventListener("click", moveLeft);
 btnRight.addEventListener("click", moveRight);
+btnReset.addEventListener("click", reset);
 
+function reset() {
+  location.reload();
+}
 function setCanvasSize() {
   let altura = window.innerHeight;
   let ancho = window.innerWidth;
-  medida = Math.min(altura * 0.7, ancho * 0.7);
+  medida = Math.min(altura * 0.6, ancho * 0.6);
   canvas.setAttribute("width", medida);
   canvas.setAttribute("height", medida);
-
+  playerPosition.x = undefined;
+  playerPosition.y = undefined;
   startGame();
 }
 
 function startGame() {
   showLives();
-  showRecord();
   game.clearRect(0, 0, canvas.width, canvas.height);
   elementSize = medida / 10 - 1;
   game.font = elementSize + "px Verdana";
   let mapa = maps[level];
+
   if (level == 5) {
     giftPosition.x = -100;
     giftPosition.y = -100;
+  } else if (level == -1) {
+    mapa = falla;
+    let filas = mapa.trim().split("\n");
+    let filasColumnas = filas.map((row) => row.trim().split(""));
+    filasColumnas.forEach((row, i) => {
+      row.forEach((col, j) => {
+        const emoticon = emojis[col];
+        const posX = elementSize * j;
+        const posY = elementSize * (i + 1);
+        game.fillText(emoticon, posX, posY);
+      });
+    });
+    level = 0;
+    setTimeout(startGame, 500);
   }
   if (!timeStart) {
     timeStart = Date.now();
@@ -100,8 +119,8 @@ function startGame() {
   }
   if (level == 5) {
     gameWin();
-    return;
   }
+  showRecord();
 }
 
 function movePlayer() {
@@ -156,9 +175,9 @@ function moveByKey(evento) {
 
 function levelWin() {
   level++;
+  playerPosition.x = undefined;
+  playerPosition.y = undefined;
   if (level == 5) {
-    playerPosition.x = undefined;
-    playerPosition.y = undefined;
     giftPosition.x = 9999999;
     giftPosition.y = 9999999;
     spanWin.innerHTML = "YOU WIN!";
@@ -184,8 +203,9 @@ function gameWin() {
 function gameOver() {
   lives -= 1;
   if (lives <= 0) {
-    level = 0;
+    level = -1;
     lives = 5;
+
     timeStart = Date.now();
   }
   playerPosition.x = undefined;
@@ -199,7 +219,7 @@ function showLives() {
 
 function showTime() {
   let tiempo = Date.now() - timeStart;
-  spanTime.innerHTML = tiempo + " milliseconds";
+  spanTime.innerHTML = tiempo;
 }
 
 function showRecord() {

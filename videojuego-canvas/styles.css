@@ -107,6 +107,12 @@ button:not(:last-child) {
   max-width: 460px;
 }
 
+.container-info button {
+  font-size: 18px;
+  width: 200px;
+  height: 50px;
+}
+
 p {
   display: block;
   margin: 0;
