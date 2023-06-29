@@ -8,15 +8,29 @@
   </head>
   <body>
     <div class="container">
+      <p>
+        <strong
+          ><span id="win"
+            >5 lives, 5 strawberries. Collect, conquer. Prepare for sweet
+            victory!</span
+          ></strong
+        >
+      </p>
+
       <canvas id="canvas"></canvas>
       <div class="container-botones">
-        <button id="up">Arriba</button>
-        <button id="left">Izquierda</button>
-        <button id="right">Derecha</button>
-        <button id="down">Abajo</button>
+        <button id="up">Up</button>
+        <button id="left">Left</button>
+        <button id="right">Right</button>
+        <button id="down">Down</button>
       </div>
       <div class="container-info">
-        <p>Parrafo de ejemplo</p>
+        <p>Lives: <span style="font-size: 25px" id="lives"></span></p>
+        <p>Time: <span id="time"></span></p>
+        <p>Record time: <span id="record"></span></p>
+        <p>
+          <span id="result"></span>
+        </p>
       </div>
     </div>
     <script src="maps.js"></script>

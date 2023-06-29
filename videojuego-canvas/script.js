@@ -5,6 +5,11 @@ const btnRight = document.getElementById("right");
 const btnUp = document.getElementById("up");
 const btnDown = document.getElementById("down");
 const game = canvas.getContext("2d");
+const spanVidas = document.getElementById("lives");
+const spanTime = document.getElementById("time");
+const spanRecord = document.getElementById("record");
+const spanResult = document.getElementById("result");
+const spanWin = document.getElementById("win");
 
 const restricciones = {
   x: undefined,
@@ -14,7 +19,9 @@ const restricciones = {
 let medida;
 let elementSize;
 let level = 0;
-let lives = 3;
+let lives = 5;
+let timeStart = undefined;
+let timeInterval = undefined;
 const playerPosition = {
   x: undefined,
   y: undefined,
@@ -44,13 +51,19 @@ function setCanvasSize() {
 }
 
 function startGame() {
+  showLives();
+  showRecord();
   game.clearRect(0, 0, canvas.width, canvas.height);
   elementSize = medida / 10 - 1;
   game.font = elementSize + "px Verdana";
   let mapa = maps[level];
-  if (!mapa) {
-    gameWin();
-    return;
+  if (level == 5) {
+    giftPosition.x = -100;
+    giftPosition.y = -100;
+  }
+  if (!timeStart) {
+    timeStart = Date.now();
+    timeInterval = setInterval(showTime, 100);
   }
   let filas = mapa.trim().split("\n");
   let playerDead = false;
@@ -81,9 +94,13 @@ function startGame() {
   });
   if (playerDead) {
     game.fillText(emojis["BOMB_COLLISION"], playerPosition.x, playerPosition.y);
-    setTimeout(gameOver, 250);
+    setTimeout(gameOver, 100);
   } else {
     game.fillText(emojis["PLAYER"], playerPosition.x, playerPosition.y);
+  }
+  if (level == 5) {
+    gameWin();
+    return;
   }
 }
 
@@ -139,20 +156,54 @@ function moveByKey(evento) {
 
 function levelWin() {
   level++;
+  if (level == 5) {
+    playerPosition.x = undefined;
+    playerPosition.y = undefined;
+    giftPosition.x = 9999999;
+    giftPosition.y = 9999999;
+    spanWin.innerHTML = "YOU WIN!";
+    clearInterval(timeInterval);
+  }
   startGame();
 }
 
 function gameWin() {
-  alert("ganaste");
+  const recordTime = localStorage.getItem("record_time");
+  const playerTime = Date.now() - timeStart;
+  if (recordTime) {
+    if (playerTime > recordTime) {
+      spanResult.innerHTML = "You haven't been able to surpass the record.";
+    } else {
+      spanResult.innerHTML = "Congratulations! You have surpassed the record!";
+    }
+  } else {
+    localStorage.setItem("record_time", playerTime);
+  }
 }
 
 function gameOver() {
   lives -= 1;
   if (lives <= 0) {
     level = 0;
-    lives = 3;
+    lives = 5;
+    timeStart = Date.now();
   }
   playerPosition.x = undefined;
   playerPosition.y = undefined;
   startGame();
+}
+
+function showLives() {
+  spanVidas.innerHTML = "♥".repeat(lives);
+}
+
+function showTime() {
+  let tiempo = Date.now() - timeStart;
+  spanTime.innerHTML = tiempo + " milliseconds";
+}
+
+function showRecord() {
+  if (localStorage.getItem("record_time")) {
+    spanRecord.innerHTML = localStorage.getItem("record_time");
+  }
 }
