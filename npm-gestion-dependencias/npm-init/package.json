@@ -1,0 +1,24 @@
+{
+  "name": "npm-init",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "javascript",
+    "npm",
+    "node"
+  ],
+  "author": "Mateo Álvarez <maalvarezmu@unal.edu.co>",
+  "license": "MIT",
+  "description": "",
+  "dependencies": {
+    "json-server": "^0.17.3",
+    "moment": "^2.29.4"
+  },
+  "devDependencies": {
+    "eslint": "^8.43.0",
+    "react": "^18.2.0"
+  }
+}
