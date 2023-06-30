@@ -12,6 +12,11 @@
   "author": "Mateo Álvarez <maalvarezmu@unal.edu.co>",
   "license": "MIT",
   "devDependencies": {
+    "@types/lodash": "^4.14.195",
     "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "date-fns": "^2.30.0",
+    "lodash": "^4.17.21"
   }
 }
