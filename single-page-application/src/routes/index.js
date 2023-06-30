@@ -13,7 +13,7 @@ const routes = {
 
 const router = async () => {
   const header = null || document.getElementById("Header");
-  const content = null || document.getElementById("Content");
+  const content = null || document.getElementById("content");
 
   header.innerHTML = await Header();
   let hash = getHash();
