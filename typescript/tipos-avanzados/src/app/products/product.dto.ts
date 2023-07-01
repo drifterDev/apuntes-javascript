@@ -22,5 +22,5 @@ type exampleRequired = Required<Product>;
 
 export interface FindProductDto
   extends Readonly<Partial<Omit<Product, 'tags'>>> {
-  readonly tags: ReadonlyArray<string>;
+  readonly tags?: ReadonlyArray<string>;
 }
