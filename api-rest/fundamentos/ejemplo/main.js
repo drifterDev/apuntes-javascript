@@ -3,7 +3,7 @@ const fetchFuntion = async () => {
   const img2 = document.getElementById("img2");
   const img3 = document.getElementById("img3");
   const URL =
-    "https://api.thecatapi.com/v1/images/search?limit=10&api_key=live_lqQ1JqJkcYKwEmCAeUOT9UPWAHNa3kcfJFgUuTrSgnSp5L76c88ULChl5ZCDla0r";
+    "https://api.thecatapi.com/v1/images/search?limit=10";
   try {
     const res = await fetch(URL);
     const data = await res.json();
