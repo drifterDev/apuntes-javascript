@@ -1,15 +1,26 @@
-import { addProduct } from './products/product.service';
-addProduct({
-  id: '2',
-  title: 'T-shirt',
-  createdAt: new Date(),
-  updatedAt: new Date(),
-  stock: 45,
-  size: 'L',
-  category: {
-    id: '5432',
-    name: 'category 1',
-    createdAt: new Date(),
-    updatedAt: new Date(),
-  },
-});
+import { faker } from '@faker-js/faker';
+import {
+  addProduct,
+  products,
+  updateProduct,
+  findProducts,
+} from './products/product.service';
+for (let i = 0; i < 10; i++) {
+  addProduct({
+    title: faker.commerce.productName(),
+    description: faker.commerce.productDescription(),
+    image: faker.image.imageUrl(),
+    size: faker.helpers.arrayElement(['M', 'S', 'L']),
+    color: faker.color.rgb(),
+    isNew: faker.datatype.boolean(),
+    tags: [faker.random.words(), faker.random.words()],
+    price: parseInt(faker.commerce.price()),
+    stock: faker.datatype.number({ min: 10, max: 100 }),
+    categoryId: faker.datatype.uuid(),
+  });
+}
+
+console.log(products);
+const producto = products[9];
+console.log(updateProduct(producto.id, { title: 'Libros', stock: 99999 }));
+console.log(findProducts({ isNew: true, color: 'rojo' }));
