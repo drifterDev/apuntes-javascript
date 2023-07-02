@@ -1,0 +1,27 @@
+{
+  "name": "webpack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "javascript",
+    "webpack"
+  ],
+  "author": "Mateo Álvarez <maalvarezmu@unal.edu.co>",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "-": "^0.0.1",
+    "@babel/core": "^7.22.5",
+    "babel-loader": "^9.1.2",
+    "copy-webpack-plugin": "^11.0.0",
+    "D": "^1.0.0",
+    "html-webpack-plugin": "^5.5.3"
+  }
+}
