@@ -23,13 +23,21 @@
         </article>
         <button onclick="loadRandomInfo()">Recargar</button>
       </section>
+      <section id="uploadInfo">
+        <h2>Sube la foto de tu Gato</h2>
+        <form id="unploadForm">
+          <input type="file" id="file" name="file" />
+          <button type="button" onclick="uploadFile()">Subir foto</button>
+        </form>
+      </section>
       <section id="favoritesMichis">
         <!-- <article>
         <img id="img4" width="150" alt="Foto de gato4" />
         <button>Quitar de favoritos</button>
       </article> -->
       </section>
-      <script src="./main.js"></script>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./axios.js"></script>
   </body>
 </html>

@@ -5,6 +5,7 @@ const API_URL_RANDOM = `https://api.thecatapi.com/v1/images/search?limit=2`;
 const API_URL_FAVORIES = `https://api.thecatapi.com/v1/favourites`;
 const API_URL_FAVORIE_DELETE = (id) =>
   `https://api.thecatapi.com/v1/favourites/${id}`;
+const API_URL_UPLOAD = `https://api.thecatapi.com/v1/images/upload`;
 const spanError = document.getElementById("error");
 
 async function loadRandomInfo() {
@@ -51,7 +52,7 @@ async function loadFavoritesInfo() {
       btn.appendChild(btnText);
       btn.onclick = () => deleteFavoriteInfo(element.id);
       img.src = element.image.url;
-      img.width = "250";
+      img.width = "150";
       article.appendChild(img);
       article.appendChild(btn);
       section.appendChild(article);
@@ -92,6 +93,30 @@ async function deleteFavoriteInfo(id) {
     spanError.innerHTML = "ERROR " + res.status + " " + data.message;
   } else {
     console.log("Eliminado con exito");
+    loadFavoritesInfo();
+  }
+}
+
+async function uploadFile() {
+  const form = document.getElementById("unploadForm");
+  const formData = new FormData(form);
+  const res = await fetch(API_URL_UPLOAD, {
+    method: "POST",
+    headers: {
+      //Fetch sabe que poner en content-type
+      // "Content-Type": "multipart/form-data",
+      "X-API-KEY": API_KEY,
+    },
+    body: formData,
+  });
+  const data = await res.json();
+  if (res.status !== 201) {
+    console.log(data);
+    console.log(res);
+    spanError.innerHTML = "ERROR " + res.status + " " + data.message;
+  } else {
+    console.log("Subida con exito");
+    saveFavoritesInfo(data.id);
     loadFavoritesInfo();
   }
 }

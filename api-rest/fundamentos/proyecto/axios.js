@@ -1,18 +1,19 @@
+//Lo mismo, pero con axios
 //Hecho con el atributo de headers al hacer la peticion de fetch
 "use strict";
 const API_KEY = "";
-const API_URL_RANDOM = `https://api.thecatapi.com/v1/images/search?limit=2`;
-const API_URL_FAVORIES = `https://api.thecatapi.com/v1/favourites`;
-const API_URL_FAVORIE_DELETE = (id) =>
-  `https://api.thecatapi.com/v1/favourites/${id}`;
+const api = axios.create({
+  baseURL: "https://api.thecatapi.com/v1",
+});
+api.defaults.headers.common["X-API-KEY"] = API_KEY;
+const API_URL_FAVORIE_DELETE = (id) => `/favourites/${id}`;
 const spanError = document.getElementById("error");
 
 async function loadRandomInfo() {
-  const res = await fetch(API_URL_RANDOM);
-  const data = await res.json();
+  const { data, status } = await api.get("images/search?limit=2");
 
-  if (res.status !== 200) {
-    spanError.innerHTML = "ERROR " + res.status + " " + data.message;
+  if (status !== 200) {
+    spanError.innerHTML = "ERROR " + status + " " + data.message;
   } else {
     const img1 = document.getElementById("img1");
     const img2 = document.getElementById("img2");
@@ -28,14 +29,9 @@ async function loadRandomInfo() {
 }
 
 async function loadFavoritesInfo() {
-  const res = await fetch(API_URL_FAVORIES, {
-    headers: {
-      "x-api-key": API_KEY,
-    },
-  });
-  const data = await res.json();
-  if (res.status !== 200) {
-    spanError.innerHTML = "ERROR " + res.status + " " + data.message;
+  const { data, status } = await api.get("/favourites");
+  if (status !== 200) {
+    spanError.innerHTML = "ERROR " + status + " " + data.message;
   } else {
     const section = document.getElementById("favoritesMichis");
     section.innerHTML = "";
@@ -60,20 +56,12 @@ async function loadFavoritesInfo() {
 }
 
 async function saveFavoritesInfo(id) {
-  const res = await fetch(API_URL_FAVORIES, {
-    method: "POST",
-    headers: {
-      "x-api-key": API_KEY,
-      "Content-type": "application/json",
-    },
-    body: JSON.stringify({
-      image_id: id,
-    }),
+  const { data, status } = await api.post("/favourites", {
+    image_id: id,
   });
-  const data = await res.json();
-  console.log("res", data);
-  if (res.status !== 200) {
-    spanError.innerHTML = "ERROR " + res.status + " " + data.message;
+
+  if (status !== 200) {
+    spanError.innerHTML = "ERROR " + status + " " + data.message;
   } else {
     console.log("Guardado exitoso");
     loadFavoritesInfo();
@@ -81,17 +69,26 @@ async function saveFavoritesInfo(id) {
 }
 
 async function deleteFavoriteInfo(id) {
-  const res = await fetch(API_URL_FAVORIE_DELETE(id), {
-    method: "DELETE",
-    headers: {
-      "x-api-key": API_KEY,
-    },
-  });
-  const data = await res.json();
-  if (res.status !== 200) {
-    spanError.innerHTML = "ERROR " + res.status + " " + data.message;
+  const { data, status } = await api.delete(API_URL_FAVORIE_DELETE(id));
+  if (status !== 200) {
+    spanError.innerHTML = "ERROR " + status + " " + data.message;
   } else {
     console.log("Eliminado con exito");
+    loadFavoritesInfo();
+  }
+}
+
+async function uploadFile() {
+  const form = document.getElementById("unploadForm");
+  const formData = new FormData(form);
+  const { data, status } = await api.post("/images/upload", formData);
+  if (status !== 201) {
+    console.log(data);
+    console.log(res);
+    spanError.innerHTML = "ERROR " + status + " " + data.message;
+  } else {
+    console.log("Subida con exito");
+    saveFavoritesInfo(data.id);
     loadFavoritesInfo();
   }
 }
