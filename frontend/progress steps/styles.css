@@ -1,0 +1,126 @@
+/* MIT License
+
+Copyright (c) 2023 Mateo Álvarez Murillo
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+ */
+
+:root {
+  --line-border-fill: #3498db;
+  --line-border-empty: #383838;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: #1f1f1f;
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  font-size: 1.3rem;
+}
+
+.container {
+  text-align: center;
+}
+
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 3rem;
+  max-width: 100%;
+  width: 35rem;
+}
+
+.progress-container::before {
+  content: "";
+  background-color: var(--line-border-empty);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 0.4rem;
+  width: 100%;
+  z-index: -1;
+}
+
+.progress {
+  background-color: var(--line-border-fill);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 0.4rem;
+  width: 0%;
+  z-index: -1;
+  transition: all 300ms;
+}
+
+.circle {
+  background-color: #1f1f1f;
+  color: #e2e2e2;
+  border-radius: 50%;
+  height: 3rem;
+  width: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.3rem solid var(--line-border-empty);
+  transition: all 300ms;
+}
+
+.active {
+  border: 0.3rem solid var(--line-border-fill);
+}
+
+.boton {
+  background-color: var(--line-border-fill);
+  color: #fff;
+  border: 0;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 8px 30px;
+  margin: 0.5rem;
+}
+
+.boton:active {
+  transform: scale(0.9);
+}
+
+.boton:focus {
+  outline: 0;
+}
+
+.boton:disabled {
+  background-color: var(--line-border-empty);
+  cursor: not-allowed;
+}

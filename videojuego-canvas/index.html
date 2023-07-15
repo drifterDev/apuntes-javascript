@@ -1,0 +1,62 @@
+<!-- MIT License
+
+Copyright (c) 2023 Mateo Álvarez Murillo
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laberinto</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <p>
+        <strong
+          ><span id="win"
+            >5 lives, 5 strawberries. Collect, conquer. Prepare for sweet
+            victory!</span
+          ></strong
+        >
+      </p>
+
+      <canvas id="canvas"></canvas>
+      <div class="container-botones">
+        <button id="up">Up</button>
+        <button id="left">Left</button>
+        <button id="right">Right</button>
+        <button id="down">Down</button>
+      </div>
+      <div class="container-info">
+        <p>Lives: <span style="font-size: 25px" id="lives"></span></p>
+        <p>Time ⏲: <span id="time"></span></p>
+        <p>Record 🏁: <span id="record"></span></p>
+        <p>
+          <span id="result"></span>
+        </p>
+        <button id="reset">reset the game</button>
+      </div>
+    </div>
+    <script src="maps.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

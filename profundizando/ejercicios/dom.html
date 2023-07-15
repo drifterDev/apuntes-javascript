@@ -1,0 +1,62 @@
+<!--
+// Autor: Mateo Álvarez Murillo
+// Fecha de creación: 2023
+
+// Este código se proporciona bajo la Licencia MIT.
+// Para más información, consulta el archivo LICENSE en la raíz del repositorio.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario ejercicio</title>
+    <script src="ejercicioDom.js"></script>
+    <style>
+      .box {
+        width: 300px;
+        float: left;
+        margin: 20px;
+        height: 200px;
+      }
+
+      .dashed {
+        border: 3px dashed black;
+        padding: 2px 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Formulario con los campos: nombre, apellidos y edad
+    Boton para enviar el formulario, submit
+    Mostrar datos por pantalla
+    Tener un boton que nos muestra los datos actuales del form 
+    Validar formulario-->
+
+    <h1>Ejercicio del dom, eventos y funciones</h1>
+    <div class="box">
+      <!-- Lo siguiente es para que no se recargue la pagina al enviar el formulario -->
+      <form action="#" method="post" id="formulario" onsubmit="return false;">
+        <label for="nombre">Nombre:</label><br />
+        <input type="text" name="nombre" id="nombre" />
+        <div id="error1"></div>
+        <br />
+        <label for="apellidos">Apellidos:</label><br />
+        <input type="text" id="apellidos" name="apellidos" />
+        <div id="error2"></div>
+        <br />
+        <label for="edad">Edad:</label><br />
+        <input type="number" id="edad" name="edad" />
+        <div id="error3"></div>
+        <br />
+        <input type="submit" value="Enviar" id="submit" />
+      </form>
+    </div>
+    <div class="box dashed">
+      <h3>Información del form</h3>
+      <hr />
+    </div>
+  </body>
+</html>

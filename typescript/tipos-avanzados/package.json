@@ -1,0 +1,23 @@
+{
+  "name": "tipos-avanzados",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "typescript",
+    "javascript"
+  ],
+  "author": "Mateo Álvarez <maalvarezmu@unal.edu.co>",
+  "license": "MIT",
+  "devDependencies": {
+    "@faker-js/faker": "^8.0.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "@capacitor/camera": "^5.0.5"
+  }
+}
