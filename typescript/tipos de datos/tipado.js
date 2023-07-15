@@ -1,3 +1,9 @@
+// Autor: Mateo Álvarez Murillo
+// Fecha de creación: 2023
+
+// Este código se proporciona bajo la Licencia MIT.
+// Para más información, consulta el archivo LICENSE en la raíz del repositorio.
+
 //Tipos de datos
 var cadena = "Hola mundo!";
 var numero = 24;
@@ -22,13 +28,13 @@ console.log(variable);
 var n1 = 24;
 var n2 = 18;
 if (n1 == 24) {
-    var n1_1 = 42;
-    var n2 = 20;
-    console.log(n1_1, n2);
+  var n1_1 = 42;
+  var n2 = 20;
+  console.log(n1_1, n2);
 }
 console.log(n1, n2);
 //Funciones y tipado
 function suma(n1, n2, mensaje) {
-    return mensaje + (n1 + n2);
+  return mensaje + (n1 + n2);
 }
 console.log(suma(15, 12, "La suma es: "));

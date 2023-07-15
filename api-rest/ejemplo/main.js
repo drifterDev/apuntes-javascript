@@ -1,9 +1,14 @@
+// Autor: Mateo Álvarez Murillo
+// Fecha de creación: 2023
+
+// Este código se proporciona bajo la Licencia MIT.
+// Para más información, consulta el archivo LICENSE en la raíz del repositorio.
+
 const fetchFuntion = async () => {
   const img1 = document.getElementById("img1");
   const img2 = document.getElementById("img2");
   const img3 = document.getElementById("img3");
-  const URL =
-    "https://api.thecatapi.com/v1/images/search?limit=10";
+  const URL = "https://api.thecatapi.com/v1/images/search?limit=10";
   try {
     const res = await fetch(URL);
     const data = await res.json();
