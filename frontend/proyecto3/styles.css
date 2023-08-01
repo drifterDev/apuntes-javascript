@@ -115,7 +115,6 @@ body {
 #entrada input {
   padding: 2px;
   padding-left: 10px;
-  -moz-appearance: textfield;
 }
 
 #separador {
