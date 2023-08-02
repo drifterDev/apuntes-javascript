@@ -1,0 +1,19 @@
+{
+  "name": "drifterdev-str-random",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "javascript",
+    "npm"
+  ],
+  "author": "Mateo Álvarez <maalvarezmu@unal.edu.co>",
+  "license": "MIT",
+  "bin": {
+    "drifterdev-str-random": "./bin/global.js"
+  },
+  "preferGlobal": true
+}

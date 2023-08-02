@@ -1,0 +1,218 @@
+/* MIT License
+
+Copyright (c) 2023 Mateo Álvarez Murillo
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+ */
+
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+
+:root {
+  --Very-dark-desaturated-blue: hsl(238, 29%, 16%);
+  --Soft-red: hsl(14, 88%, 65%);
+  --Soft-violet: hsl(273, 75%, 66%);
+  --Soft-blue: hsl(240, 73%, 65%);
+  --Very-dark-grayish-blue: hsl(237, 12%, 33%);
+  --Dark-grayish-blue: hsl(240, 6%, 50%);
+  --Light-grayish-blue: hsl(240, 5%, 91%);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Kumbh Sans", sans-serif;
+  font-size: 1.2rem;
+  color: var(--Very-dark-grayish-blue);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-image: linear-gradient(
+    to bottom,
+    var(--Soft-violet),
+    var(--Soft-blue)
+  );
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 145px;
+  position: relative;
+  width: 320px;
+  border-radius: 10px;
+  padding-bottom: 30px;
+  margin-bottom: 80px;
+  background: var(--Light-grayish-blue);
+}
+
+.info {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section {
+  display: none;
+}
+
+.info h1 {
+  margin-top: 130px;
+  font-size: 3rem;
+  margin-bottom: 5px;
+  color: var(--Very-dark-desaturated-blue);
+}
+
+.question {
+  margin-top: 10px;
+  width: 80%;
+  text-align: left;
+  padding-bottom: 5px;
+  font-size: 1.2rem;
+  transition: all 0.5s ease;
+  border-bottom: 1px solid var(--Dark-grayish-blue);
+}
+
+.question-title {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  transition: all 0.2s linear;
+}
+
+.active .question-title {
+  font-weight: bold;
+  color: var(--Very-dark-desaturated-blue);
+  transition: all 0.2s linear;
+}
+
+.active .queston-body {
+  display: block;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+}
+
+.active .flecha {
+  transform: rotate(180deg);
+  transition: all 0.3s ease;
+}
+
+.inactive .queston-body {
+  display: none;
+  transition: all 0.3s ease;
+}
+
+.question-title .flecha {
+  width: 10px;
+  height: 10px;
+  background-image: url("../images/icon-arrow-down.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: all 0.3s ease;
+}
+
+.imagen-main {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  top: -140px;
+  padding-top: 30px;
+  background-image: url("../images/bg-pattern-desktop.svg");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.dice {
+  display: none;
+}
+
+@media (min-width: 375px) {
+  .main {
+    margin: 100px 0;
+    width: 700px;
+    flex-direction: row;
+    overflow: hidden;
+    justify-content: space-between;
+  }
+
+  .info h1 {
+    align-self: flex-start;
+    padding: 0;
+    margin-top: 0px;
+    margin-bottom: 20px;
+  }
+
+  .imagen-main {
+    margin: 0;
+    padding: 0;
+    order: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-image: url("");
+    width: 80%;
+  }
+
+  .imagen-main > img {
+    position: absolute;
+    left: -50px;
+    top: 140px;
+    width: 120%;
+  }
+
+  .dice {
+    display: block;
+    position: relative;
+    width: 130px;
+  }
+
+  .dice img {
+    width: 100%;
+    position: absolute;
+    right: 760px;
+    top: -35px;
+    z-index: 10;
+  }
+
+  .info {
+    margin-left: 50px;
+    width: 100%;
+    padding: 50px 0 60px;
+    order: 2;
+    align-items: start;
+  }
+}

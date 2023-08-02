@@ -1,0 +1,184 @@
+/* MIT License
+
+Copyright (c) 2023 Mateo Álvarez Murillo
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+
+:root {
+  --tomato: hsl(4, 100%, 67%);
+  --Dark-Slate-Grey: hsl(234, 29%, 20%);
+  --Charcoal-Grey: hsl(235, 18%, 26%);
+  --Grey: hsl(231, 7%, 60%);
+  --White: hsl(0, 0%, 100%);
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  height: 95vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--Charcoal-Grey);
+}
+
+#container {
+  background-color: var(--White);
+  width: 65vw;
+  height: 80vh;
+  overflow: hidden;
+  margin: 0 auto;
+  display: grid;
+  border-radius: 20px;
+  grid-template-columns: 1fr 1fr;
+}
+
+#main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  margin-bottom: 40%;
+  padding: 50px;
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+}
+
+#form input[type="submit"] {
+  width: 100%;
+  margin: 10px auto;
+  font-weight: bold;
+  color: white;
+  background: var(--Dark-Slate-Grey);
+  border: none;
+  height: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#form input[type="submit"]:hover {
+  background: linear-gradient(to right, RGB(255, 84, 120), RGB(255, 104, 62));
+  box-shadow: 0px 0px 5px var(--tomato);
+}
+
+#form label {
+  font-size: 11px;
+}
+
+#form input[type="email"] {
+  border: 1px solid var(--Grey);
+  color: var(--Grey);
+  height: 40px;
+  border-radius: 10px;
+  padding-left: 10px;
+  margin-top: 10px;
+}
+
+#form input[type="email"]:focus {
+  color: var(--Dark-Slate-Grey);
+}
+
+#main ul {
+  list-style: none;
+  width: 100%;
+  padding: 0;
+}
+
+#main h1 {
+  font-size: 38px;
+  color: var(--Dark-Slate-Grey);
+}
+
+#main p {
+  margin: 0;
+}
+
+#main ul li {
+  width: 100%;
+  margin: 8px;
+  font-size: 14px;
+}
+
+#main ul li::before {
+  margin-right: 10px;
+  content: url("../../assets/images/icon-list.svg");
+}
+
+#image {
+  width: 97%;
+  height: 65%;
+  margin-top: 16px;
+  border-radius: 15px;
+  background: url("../../assets/images/illustration-sign-up-desktop.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+@media (max-width: 500px) {
+  body {
+    padding: 0;
+    margin: 0;
+    background: var(--White);
+  }
+  #container {
+    margin: 0;
+    padding: 0;
+    background-color: var(--White);
+    width: 100vw;
+    height: 150vh;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  #main {
+    grid-row: 2/3;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  #form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #form input[type="submit"] {
+    height: 60px;
+  }
+
+  #image {
+    grid-row: 1/2;
+    width: 100%;
+    height: 80%;
+    margin: 180px 0 0 0;
+    border-radius: 15px;
+    background: url("../../assets/images/illustration-sign-up-mobile.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+}
