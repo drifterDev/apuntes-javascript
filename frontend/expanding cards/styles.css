@@ -62,19 +62,19 @@ body {
 }
 
 #cards > :nth-child(1) {
-  background-image: url("../../../imagenes/gato1.jpg");
+  background-image: url("../../imagenes/gato1.jpg");
 }
 #cards > :nth-child(2) {
-  background-image: url("../../../imagenes/gato2.jpg");
+  background-image: url("../../imagenes/gato2.jpg");
 }
 #cards > :nth-child(3) {
-  background-image: url("../../../imagenes/gato3.jpg");
+  background-image: url("../../imagenes/gato3.jpg");
 }
 #cards > :nth-child(4) {
-  background-image: url("../../../imagenes/gato4.jpg");
+  background-image: url("../../imagenes/gato4.jpg");
 }
 #cards > :nth-child(5) {
-  background-image: url("../../../imagenes/gato5.jpg");
+  background-image: url("../../imagenes/gato5.jpg");
 }
 .card span {
   position: absolute;

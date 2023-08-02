@@ -4,7 +4,7 @@
   "description": "![Design preview for the Testimonials grid section coding challenge](./design/desktop-preview.jpg)",
   "main": "index.js",
   "scripts": {
-    "build": "npx tailwindcss -i ./design/styles/input.css -o ./design/styles/output.css -w"
+    "build": "npx tailwindcss -i ./src/input.css -o ./dist/output.css -w"
   },
   "keywords": [
     "tailwind"
