@@ -97,6 +97,10 @@ figure {
   z-index: 3;
 }
 
+figure:hover {
+  box-shadow: 0px 0px 10px 1px var(--Neon-Green);
+}
+
 @media (max-width: 375px) {
   .container {
     height: 150vh;
