@@ -1,6 +1,6 @@
 # Aprendiendo JavaScript
 
-Este repositorio contiene recursos y apuntes de JavaScript, enfocados en el aprendizaje y la práctica de esta tecnología esencial en el desarrollo de aplicaciones web.
+Este repositorio contiene códigos y apuntes de JavaScript que he creado a lo largo de mi aprendizaje de desarrollo web, enfocados en el aprendizaje y la práctica de esta tecnología.
 
 ## Contribuciones
 
