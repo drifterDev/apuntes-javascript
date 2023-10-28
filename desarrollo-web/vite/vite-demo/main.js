@@ -5,6 +5,7 @@ import { setupCounter } from './counter.js'
 import clases from './style.module.css'
 import img from './gato.jpg'
 import data from './data.json'
+import suma from './suma.ts'
 
 const modules = import.meta.glob('./modules/*.js')
 for(const path in modules){
@@ -12,6 +13,8 @@ for(const path in modules){
     module.load()
   })
 }
+
+console.log(`La suma de 2 + 5 es ${suma(2,5)}`)
 
 document.querySelector('#app').innerHTML = `
   <div>
