@@ -4,6 +4,14 @@ import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.js'
 import clases from './style.module.css'
 import img from './gato.jpg'
+import data from './data.json'
+
+const modules = import.meta.glob('./modules/*.js')
+for(const path in modules){
+  modules[path]().then((module)=>{
+    module.load()
+  })
+}
 
 document.querySelector('#app').innerHTML = `
   <div>
@@ -32,3 +40,5 @@ btn.classList.add(clases.btn);
 const imgCat = document.getElementById('img');
 imgCat.src = img;
 imgCat.classList.add(clases.gato);
+
+console.log(data);
