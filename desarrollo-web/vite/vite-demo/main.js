@@ -2,6 +2,8 @@ import './style.css'
 import javascriptLogo from './javascript.svg'
 import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.js'
+import clases from './style.module.css'
+import img from './gato.jpg'
 
 document.querySelector('#app').innerHTML = `
   <div>
@@ -18,7 +20,15 @@ document.querySelector('#app').innerHTML = `
     <p class="read-the-docs">
       Click on the Vite logo to learn more
     </p>
+    <hr/>
+    <img id="img"/>
   </div>
 `
 
 setupCounter(document.querySelector('#counter'))
+const btn = document.getElementById('counter');
+btn.classList.add(clases.btn);
+
+const imgCat = document.getElementById('img');
+imgCat.src = img;
+imgCat.classList.add(clases.gato);
