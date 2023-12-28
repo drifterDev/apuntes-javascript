@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Alpine JS</title>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      [x-cloak] {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mb-20">Aprendiendo Alpine JS.</div>
+
+    <div x-data="{expanded:false}" class="max-w-xl mx-auto">
+      <div class="relative">
+        <div
+          x-show="!expanded"
+          class="absolute inset-0 flex justify-start items-end bg-gradient-to-t from-white to-[#ffffff66]"
+        ></div>
+
+        <div x-show="expanded" x-collapse.min.80px class="space-y-4">
+          <p>
+            En este curso puedes aprender muchos contenidos muy interesantes.
+          </p>
+          <h3 class="text-2xl font-semibold">El mejor curso</h3>
+          <p>
+            lLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in
+            tincidunt nisl. Phasellus vitae faucibus turpis, eget finibus purus.
+            Curabitur nec sapien sit amet augue ornare euismod vel non purus.
+            Phasellus rhoncus tempus ipsum viverra pharetra. Nunc vestibulum
+            posuere tortor, ac auctor tellus fringilla id. Maecenas erat metus,
+          </p>
+          <p>
+            scelerisque et diam ut, volutpat lacinia ligula. Praesent porta
+            molestie odio, eu gravida mi bibendum id. Praesent ut augue
+            faucibus, vestibulum quam id, maximus tortor. Nunc semper, velit nec
+            dictum accumsan, metus ex volutpat neque, hendrerit varius tortor
+            lacus id elit. Morbi nec dolor vel quam vehicula porta lacinia eget
+            est. Pellentesque non arcu blandit, dapibus odio vitae, eleifend
+            ligula.
+          </p>
+
+          <h3 class="text-2xl font-semibold">Sigue aprendiendo</h3>
+          <p>
+            lLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in
+            tincidunt nisl. Phasellus vitae faucibus turpis, eget finibus purus.
+            Curabitur nec sapien sit amet augue ornare euismod vel non purus.
+            Phasellus rhoncus tempus ipsum viverra pharetra. Nunc vestibulum
+            posuere tortor, ac auctor tellus fringilla id. Maecenas erat metus,
+          </p>
+          <p>
+            scelerisque et diam ut, volutpat lacinia ligula. Praesent porta
+            molestie odio, eu gravida mi bibendum id. Praesent ut augue
+            faucibus, vestibulum quam id, maximus tortor. Nunc semper, velit nec
+            dictum accumsan, metus ex volutpat neque, hendrerit varius tortor
+            lacus id elit. Morbi nec dolor vel quam vehicula porta lacinia eget
+            est. Pellentesque non arcu blandit, dapibus odio vitae, eleifend
+            ligula.
+          </p>
+        </div>
+      </div>
+
+      <button
+        :aria-expanded="expanded"
+        x-on:click="expanded=!expanded"
+        class="cursor-pointer text-cyan-600 font-medium underline"
+        aria-expanded="false"
+      >
+        <span x-text="expanded?'Ocultar':'Saber más'">Saber más</span>
+        <span x-text="expanded?'↑':'↓'">↓</span>
+      </button>
+    </div>
+  </body>
+</html>
