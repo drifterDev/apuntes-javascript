@@ -91,3 +91,70 @@ for (let i = 0; i < 10; i++) {
 }
 parent.append(...nodos)
 ```
+
+9. Añadiendo estilos
+
+```js
+const nodo = document.querySelector("selector")
+nodo.style.color = "red" // Forma 1
+nodo.style = "color: red;" // Forma 2
+nodo.classList.add("text-red-500") // Forma 3
+```
+
+10. Eventos
+
+```js
+const button = document.querySelector("button")
+button.onClick = () => {
+    alert("Me has clickado")
+} // Forma 1
+button.addEventListener("click", miFuncion) // Forma 2
+button.removeEventListener("click", miFuncion) // Se necesita que la función tenga nombre para eliminarla, entonces no funciona con funciones anónimas
+```
+
+```html
+<button onclick="miFuncion">Clicame</button> <!-- Forma 3 -->
+```
+
+11. Event propagation
+
+Si le ponemos un event listener a los 3 divs, y clicas dentro del div 3, también estás clicando el div2 (porque el div3 está dentro del div2), y a su vez estás clicando el div1 (porque estos 2 divs están dentro de div1), por tanto, el evento se va a propagar hacia los 3 divs. . La forma de deterlo es usando el método stopPropagation() que viene dentro del argumento event que cualquier evento nos provee
+
+```html
+<div id="div1">
+    <div id="div2">
+        <div id="div3">
+            Hola
+        </div>
+    </div>
+</div>
+```
+
+```js
+div3.addEventListener("click", (event) => {
+  alert("Hola")
+  event.stopPropagation()
+})
+```
+
+12. Event delegation
+
+```html
+<div id="div">
+    <p>Hola</p>
+</div>
+```
+
+```js
+const div=document.getElementById("div")
+const nuevoP=document.createElement("p")
+nuevoP.textContent="Hola"
+div.appendChild(nuevoP)
+
+// Detectará el evento en cualquier p hijo
+div.addEventListener("click", (event) => {
+  if (event.target === "p") {
+    alert("Hola")
+  }
+})
+```
