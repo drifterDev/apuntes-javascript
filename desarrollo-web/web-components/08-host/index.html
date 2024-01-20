@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Host</title>
+</head>
+<body>
+  <my-element>
+    <span slot="title">Soy el titulo</span>
+    <span slot="text">Soy el texto</span>
+  </my-element>
+  <my-element class="blue">
+    <span slot="title">Soy el titulo 2</span>
+    <span slot="text">Soy el texto</span>
+  </my-element>
+  <my-element red>
+    <span slot="title">Soy el titulo 3</span>
+    <span slot="text">Soy el texto</span>
+  </my-element>
+  <article class="card">
+    <my-element>
+      <span slot="title">Soy el titulo 4</span>
+      <span slot="text">Soy el texto</span>
+    </my-element>
+  </article>
+  <script type="module" src="./element.js"></script>
+</body>
+</html>

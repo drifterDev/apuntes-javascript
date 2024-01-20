@@ -3,16 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shadow DOM</title>
-  <style>
-    h2{
-      color: blue;
-    }
-  </style>
+  <title>Slotted</title>
 </head>
 <body>
-  <h2>Hola mundo! blue</h2>
-  <my-element></my-element>
+  <my-element>
+    <span slot="title">Soy el titulo</span>
+    <span slot="text" class="red">Soy el texto</span>
+  </my-element>
   <script type="module" src="./element.js"></script>
 </body>
 </html>

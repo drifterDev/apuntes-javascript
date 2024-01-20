@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Properties</title>
+  <style>
+    my-element{
+      --primary-color: blue;
+      --heading-primary: 35px;
+    }
+
+    .segundo{
+      --primary-color: red;
+    }
+  </style>
+</head>
+<body>
+  <my-element>
+    <span slot="title">Soy el titulo</span>
+    <span slot="text">Soy el texto</span>
+  </my-element>
+  <my-element class="segundo">
+    <span slot="title">Soy el titulo 2</span>
+    <span slot="text">Soy el texto</span>
+  </my-element>
+  <script type="module" src="./element.js"></script>
+</body>
+</html>
