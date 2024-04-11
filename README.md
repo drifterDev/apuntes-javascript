@@ -1,4 +1,4 @@
-# Aprendiendo JavaScript
+# Apuntes JavaScript
 
 Este repositorio contiene códigos y apuntes de JavaScript que he creado a lo largo de mi aprendizaje de desarrollo web, enfocados en el aprendizaje y la práctica de esta tecnología.
 
