@@ -5,6 +5,8 @@
 // Para más información, consulta el archivo LICENSE en la raíz del repositorio.
 
 "use strict";
+
+// Una sola responsabilidad
 class UserAuth {
   user = "";
 

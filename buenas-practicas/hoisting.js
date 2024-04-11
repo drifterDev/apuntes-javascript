@@ -5,6 +5,8 @@
 // Para más información, consulta el archivo LICENSE en la raíz del repositorio.
 
 "use strict";
+
+// El hoisting es una característica de JavaScript que permite declarar variables y funciones después de que se han utilizado.
 var greetVar = "Hello";
 (function () {
   console.log(greetVar);

@@ -1,0 +1,121 @@
+/* 
+Autor: Mateo Álvarez Murillo
+Fecha de creación: 2023
+
+Este código se proporciona bajo la Licencia MIT.
+Para más información, consulta el archivo LICENSE en la raíz del repositorio.
+*/
+
+body {
+  font-family: sans-serif;
+  background: papayawhip;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  margin-top: 10px;
+  width: 250px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 3px solid black;
+  background: rgb(226, 196, 146);
+  color: black;
+}
+
+img {
+  border: 3px solid black;
+  border-radius: 5%;
+  height: 250px;
+  object-fit: cover;
+}
+
+#container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#randomMichis {
+  width: auto;
+  display: grid;
+  gap: 30px;
+  grid-template-columns: 1fr 1fr;
+}
+
+h1 {
+  font-size: 38px;
+  margin: 0;
+  margin-top: 10px;
+}
+
+#container h1,
+#container span {
+  margin-bottom: 5px;
+  text-align: center;
+  grid-column: 1/3;
+}
+
+#randomMichis h2 {
+  margin: 0;
+  grid-column: 1/3;
+  text-align: center;
+  margin: 0;
+}
+
+#randomMichis article {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#randomMichis > button {
+  grid-column: 1/3;
+  width: 150px;
+  margin: 0 auto;
+  height: 30px;
+  width: 300px;
+  font-size: 18px;
+}
+
+#favoritesMichis {
+  padding: 10px;
+  width: 98%;
+  display: grid;
+  gap: 10px;
+  place-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 300px));
+}
+
+#favoritesMichis h2 {
+  grid-column: 1/-1;
+  text-align: center;
+}
+
+#favoritesMichis article {
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#uploadInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#uploadInfo h2 {
+  margin: 20px;
+}
+
+#uploadInfo form {
+  display: flex;
+  flex-direction: column;
+}
